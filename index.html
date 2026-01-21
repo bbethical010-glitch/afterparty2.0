@@ -1,20 +1,15 @@
 <style>
-  /* This hides your entire site until the password is correct */
   html { display: none; }
 </style>
 
 <script>
-  // 1. CHOOSE YOUR PASSWORD HERE
   const MY_PASSWORD = "ENCORE2026"; 
 
-  // 2. THE LOCK LOGIC
-  const credential = prompt("🔒 VIP ACCESS ONLY\nEnter the Secret Invite Code to view the Encore Pass:");
+  const credential = prompt("🔐 VIP ACCESS ONLY\nEnter the Secret Invite Code to view the Encore Pass:");
 
   if (credential === MY_PASSWORD) {
-      // If correct, show the site
       document.documentElement.style.display = "block";
   } else {
-      // If wrong, show error and refresh
       alert("❌ Access Denied.");
       window.location.reload();
   }
@@ -109,58 +104,6 @@
             letter-spacing: 4px;
             margin-bottom: 50px;
             text-transform: uppercase;
-        }
-
-        .countdown-section {
-            background: rgba(20, 0, 40, 0.8);
-            border: 2px solid #ff00ff;
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 0 40px rgba(255, 0, 255, 0.4);
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .countdown-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
-            color: #00ffff;
-            text-align: center;
-            margin-bottom: 30px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-        }
-
-        .countdown-timer {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            text-align: center;
-        }
-
-        .countdown-item {
-            background: rgba(0, 0, 0, 0.5);
-            border: 2px solid #00ffff;
-            border-radius: 15px;
-            padding: 20px 10px;
-        }
-
-        .countdown-value {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 3rem;
-            font-weight: 900;
-            color: #ff00ff;
-            display: block;
-            line-height: 1;
-        }
-
-        .countdown-label {
-            font-size: 0.9rem;
-            color: #00ffff;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 10px;
-            display: block;
         }
 
         .event-details {
@@ -292,14 +235,16 @@
             color: #fff;
             font-size: 1.1rem;
             margin: 15px 0;
-            padding-left: 40px;
+            padding-left: 30px;
             position: relative;
         }
 
         .rule-item::before {
+            content: '▸';
             position: absolute;
             left: 0;
-            font-size: 1.3rem;
+            color: #00ffff;
+            font-size: 1.5rem;
         }
 
         .action-buttons {
@@ -461,19 +406,11 @@
                 letter-spacing: 4px;
             }
 
-            .countdown-timer {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .countdown-value {
-                font-size: 2rem;
-            }
-
             .action-buttons {
                 grid-template-columns: 1fr;
             }
 
-            .event-details, .form-section, .rules-section, .countdown-section {
+            .event-details, .form-section, .rules-section {
                 padding: 25px;
             }
         }
@@ -482,33 +419,11 @@
 <body>
     <div class="container">
         <div class="logo-section">
-            <img src="cropped-fav.png" alt="Seth M.R. Jaipuria School">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhYPmlRahOzpAPJtgMhzGeIxZHOYfcHAzE1w&amp;s" alt="Seth M.R. Jaipuria School">
         </div>
 
         <h1 class="main-title">ENCORE</h1>
         <p class="subtitle">After Party - Class of 2025-26</p>
-
-        <div class="countdown-section">
-            <h2 class="countdown-title">⏳ Event Countdown</h2>
-            <div class="countdown-timer">
-                <div class="countdown-item">
-                    <span class="countdown-value" id="days">00</span>
-                    <span class="countdown-label">Days</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-value" id="hours">00</span>
-                    <span class="countdown-label">Hours</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-value" id="minutes">00</span>
-                    <span class="countdown-label">Minutes</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-value" id="seconds">00</span>
-                    <span class="countdown-label">Seconds</span>
-                </div>
-            </div>
-        </div>
 
         <div class="event-details">
             <div class="detail-item">
@@ -524,7 +439,7 @@
             <div class="detail-item">
                 <span class="detail-icon">📍</span>
                 <span class="detail-label">VENUE:</span>
-                <span>Saras Elysium, 2nd Floor<br>The Grand Arc Hotel & Convention Centre</span>
+                <span>The Grand Art Floor</span>
             </div>
         </div>
 
@@ -533,7 +448,7 @@
             <form id="entryForm">
                 <div class="input-group">
                     <label for="userId">UNIQUE USER ID</label>
-                    <input type="text" id="userId" name="userId" required placeholder="Enter your ID">
+                    <input type="text" id="userId" name="userId" required placeholder="Enter your ID (e.g., JAI-001)">
                 </div>
                 <div class="input-group">
                     <label for="fullName">FULL NAME</label>
@@ -549,17 +464,17 @@
             <p class="verified-text">Your digital entry pass has been verified</p>
             <div class="verified-id" id="displayInfo"></div>
             <p class="verified-text">Screenshot this confirmation for entry</p>
-            <p class="verified-text" style="color: #00ffff; margin-top: 30px;">See you at Saras Elysium!</p>
+            <p class="verified-text" style="color: #00ffff; margin-top: 30px;">See you at The Grand Art Floor!</p>
         </div>
 
         <div class="rules-section">
-            <h2 class="rules-title">EVENT RULES</h2>
-            <div class="rule-item" style="--emoji: '🎟️'">🎟️ Entry only after verification</div>
-            <div class="rule-item" style="--emoji: '🔒'">🔒 Invite-only event</div>
-            <div class="rule-item" style="--emoji: '👗'">👗 Party wear / semi-formal only</div>
-            <div class="rule-item" style="--emoji: '🏨'">🏨 Respect the venue</div>
-            <div class="rule-item" style="--emoji: '😎'">😎 Good vibes only</div>
-            <div class="rule-item" style="--emoji: '🎧'">🎧 Organizer's decision is final</div>
+            <h2 class="rules-title">EVENT GUIDELINES</h2>
+            <div class="rule-item">Dress Code: Party Wear (Mandatory)</div>
+            <div class="rule-item">Entry Only Via Valid Digital Pass & User ID</div>
+            <div class="rule-item">Arrive Between 5:00 PM - 6:00 PM for Smooth Check-in</div>
+            <div class="rule-item">Outside Food & Beverages Not Permitted</div>
+            <div class="rule-item">Follow Event Staff Instructions at All Times</div>
+            <div class="rule-item">Photography & Videography Zones Will Be Designated</div>
         </div>
 
         <div class="action-buttons">
@@ -577,33 +492,68 @@
     <script>
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyPMcvNbwuS1_oVZk94HF84oIbxn_xh2d70b1lINcq26sHIVHJEfV-tJwDP13229YAN/exec";
 
-        // Countdown Timer
-        function updateCountdown() {
-            const eventDate = new Date("February 1, 2026 17:00:00").getTime();
-            const now = new Date().getTime();
-            const distance = eventDate - now;
+        // Valid users list from your PDF
+        const VALID_USERS = {
+            "JAI-001": "ARSHITA CHARAG",
+            "JAI-002": "ATHARV SAXENA",
+            "JAI-003": "DIVYANSH RAJ SINGH",
+            "JAI-004": "KAUSHIK SHUKLA",
+            "JAI-005": "RIDDHI GARG",
+            "JAI-006": "SHAURYA MISHRA",
+            "JAI-007": "AAVIAH GRACE PHILLIPS",
+            "JAI-008": "ANUBHAV VERMA",
+            "JAI-009": "GARVIT DWIVEDI",
+            "JAI-010": "MOHD AREEB",
+            "JAI-011": "MOHD. FARAZ",
+            "JAI-012": "PRASHAST VERMA",
+            "JAI-013": "SHERLIN SACHDEVA",
+            "JAI-014": "SHIKSHA VERMA",
+            "JAI-015": "SHIV SHUKLA",
+            "JAI-016": "SHREYA GANGWAR",
+            "JAI-017": "UJJAWAL RAJPUT",
+            "JAI-018": "VIDUSHI YADUVANSHI",
+            "JAI-019": "AAYUSHI AGARWAL",
+            "JAI-020": "ABHAY VIKRAM SINGH",
+            "JAI-021": "AKSHANSH PRATAP SINGH",
+            "JAI-022": "ANGAD SINGH",
+            "JAI-023": "ARSHITA SINGH",
+            "JAI-024": "AYUSH GUPTA",
+            "JAI-025": "NAVYA GUPTA",
+            "JAI-026": "PRATHAM PANDEY",
+            "JAI-027": "RUDRAKSHA GUPTA",
+            "JAI-028": "SHAIKH FARAZ AHMAD",
+            "JAI-029": "SHIVA SINGH",
+            "JAI-030": "SHIVANSH AGARWAL",
+            "JAI-031": "SIDDHI RASTOGI",
+            "JAI-032": "YASH MAURYA",
+            "JAI-033": "HARISH KHAN",
+            "JAI-034": "SHRIYA SHRI RAJPUT",
+            "JAI-035": "VEDANSH AGARWAL",
+            "JAI-036": "VAISHNAVI",
+            "JAI-037": "MEET",
+            "JAI-038": "ANANYA",
+            "JAI-039": "TANMAY"
+        };
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("days").textContent = String(days).padStart(2, '0');
-            document.getElementById("hours").textContent = String(hours).padStart(2, '0');
-            document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
-            document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
-
-            if (distance < 0) {
-                document.querySelector(".countdown-title").textContent = "🎉 EVENT IS LIVE!";
-                document.getElementById("days").textContent = "00";
-                document.getElementById("hours").textContent = "00";
-                document.getElementById("minutes").textContent = "00";
-                document.getElementById("seconds").textContent = "00";
+        // Store registered users in localStorage
+        async function isUserRegistered(userId) {
+            try {
+                const checkData = new FormData();
+                checkData.append("userId", userId);
+                checkData.append("action", "check");
+                
+                const response = await fetch(SCRIPT_URL, {
+                    method: "POST",
+                    body: checkData
+                });
+                
+                const result = await response.json();
+                return result.isRegistered || false;
+            } catch (error) {
+                console.log("Error checking registration:", error);
+                return false;
             }
         }
-
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
 
         function createConfetti() {
             const colors = ["#ff00ff", "#00ffff", "#ff0080", "#00ff80", "#ffff00"];
@@ -625,11 +575,11 @@
 
         window.addEventListener("load", createConfetti);
 
-        document.getElementById("entryForm").addEventListener("submit", function(e) {
+        document.getElementById("entryForm").addEventListener("submit", async function(e) {
             e.preventDefault();
 
-            const userId = document.getElementById("userId").value.trim();
-            const fullName = document.getElementById("fullName").value.trim();
+            const userId = document.getElementById("userId").value.trim().toUpperCase();
+            const fullName = document.getElementById("fullName").value.trim().toUpperCase();
             const submitBtn = document.getElementById("submitBtn");
 
             if (!userId || !fullName) {
@@ -637,12 +587,52 @@
                 return;
             }
 
-            submitBtn.textContent = "PROCESSING...";
+            // Check if user ID exists in valid users list
+            if (!VALID_USERS[userId]) {
+                alert("❌ Invalid User ID!\n\nThis User ID is not registered for the event.\nPlease check your ID and try again.");
+                document.getElementById("userId").value = "";
+                document.getElementById("userId").focus();
+                return;
+            }
+
+            // Check if name matches the user ID
+            const validName = VALID_USERS[userId];
+            if (fullName !== validName) {
+                alert("❌ Invalid Username!\n\nThe name does not match the User ID.\nExpected: " + validName + "\n\nPlease enter the correct name.");
+                document.getElementById("fullName").value = "";
+                document.getElementById("fullName").focus();
+                return;
+            }
+
+            submitBtn.textContent = "CHECKING...";
             submitBtn.disabled = true;
+
+            // Check if user already registered in database
+            const alreadyRegistered = await isUserRegistered(userId);
+            
+            if (alreadyRegistered) {
+                alert("✓ Already Registered!\n\nYou have already completed your registration.\nYour pass is ready to use.");
+                
+                // Show verified screen for already registered user
+                document.getElementById("formSection").style.display = "none";
+                document.getElementById("verifiedScreen").classList.add("active");
+                document.getElementById("displayInfo").innerHTML = 
+                    "<strong>ID:</strong> " + userId + "<br><strong>NAME:</strong> " + validName;
+                
+                createConfetti();
+                
+                setTimeout(function() {
+                    document.getElementById("verifiedScreen").scrollIntoView({ behavior: "smooth" });
+                }, 100);
+                return;
+            }
+
+            submitBtn.textContent = "PROCESSING...";
 
             const formData = new FormData();
             formData.append("userId", userId);
-            formData.append("fullName", fullName);
+            formData.append("fullName", validName);
+            formData.append("action", "register");
 
             fetch(SCRIPT_URL, {
                 method: "POST",
@@ -655,7 +645,7 @@
                 document.getElementById("formSection").style.display = "none";
                 document.getElementById("verifiedScreen").classList.add("active");
                 document.getElementById("displayInfo").innerHTML = 
-                    "<strong>ID:</strong> " + userId + "<br><strong>NAME:</strong> " + fullName;
+                    "<strong>ID:</strong> " + userId + "<br><strong>NAME:</strong> " + validName;
 
                 createConfetti();
 
